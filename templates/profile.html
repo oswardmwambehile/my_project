@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mx-auto px-6 py-8">
+    <h5 class="text-2xl font-semibold text-gray-900 dark:text-white mb-6">Welcome, {{ user.username }}</h5>
+
+    <!-- Sidebar Section -->
+    <div class="w-full md:w-1/4 mb-6">
+        <ul class="space-y-4">
+            <!-- Profile Link -->
+           
+            <!-- Address Link -->
+            <li>
+                <a href="{% url 'address' %}" class="block bg-green-500 text-white text-center py-3 px-5 rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-300">
+                    Address
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'profile' %}" class="block bg-blue-900 text-white text-center py-3 px-5 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300">
+                    Profile
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Registration Form Section -->
+    <div class="max-w-lg mx-auto bg-white shadow-xl rounded-lg p-8">
+        <h2 class="text-3xl font-bold text-gray-800 text-center mb-6">Customer Registration</h2>
+
+        <form method="post" class="space-y-6">
+            {% csrf_token %}
+
+            <!-- Name Field -->
+            <div class="mb-4">
+                <label for="name" class="block text-sm font-medium text-gray-900">Full Name</label>
+                {{ form.name }}
+            </div>
+
+            <!-- Locality Field -->
+            <div class="mb-4">
+                <label for="locality" class="block text-sm font-medium text-gray-900">Locality</label>
+                {{ form.locality }}
+            </div>
+
+            <!-- Country Field -->
+            <div class="mb-4">
+                <label for="country" class="block text-sm font-medium text-gray-900">Country</label>
+                {{ form.country }}
+            </div>
+
+            <!-- Mobile Field -->
+            <div class="mb-4">
+                <label for="mobile" class="block text-sm font-medium text-gray-900">Mobile Number</label>
+                {{ form.mobile }}
+            </div>
+
+            <!-- Zipcode Field -->
+            <div class="mb-4">
+                <label for="zipcode" class="block text-sm font-medium text-gray-900">Zipcode</label>
+                {{ form.zipcode }}
+            </div>
+
+            <!-- City Field -->
+            <div class="mb-4">
+                <label for="city" class="block text-sm font-medium text-gray-900">City</label>
+                {{ form.city }}
+            </div>
+
+            <!-- Submit Button -->
+            <div class="flex justify-end">
+                <button type="submit" class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-base px-6 py-3 w-auto">
+                    Submit
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

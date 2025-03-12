@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+    <!-- Links Section - Profile and Address -->
+    
+
+    <div class="container mx-auto px-6 py-8">
+        <div class="max-w-lg mx-auto bg-white shadow-xl rounded-lg p-6">
+            <h2 class="text-3xl font-bold text-gray-800 text-center mb-6">Update customer detail</h2>
+    
+            <form method="post" class="space-y-6">
+                {% csrf_token %}
+    
+                <!-- Name Field -->
+                <div class="mb-4">
+                    <label for="name" class="block text-sm font-medium text-gray-900">Full Name</label>
+                    {{ form.name }}
+                </div>
+    
+                <!-- Locality Field -->
+                <div class="mb-4">
+                    <label for="locality" class="block text-sm font-medium text-gray-900">Locality</label>
+                    {{ form.locality }}
+                </div>
+    
+                <!-- Country Field -->
+                <div class="mb-4">
+                    <label for="country" class="block text-sm font-medium text-gray-900">Country</label>
+                    {{ form.country }}
+                </div>
+    
+                <!-- Mobile Field -->
+                <div class="mb-4">
+                    <label for="mobile" class="block text-sm font-medium text-gray-900">Mobile Number</label>
+                    {{ form.mobile }}
+                </div>
+    
+                <!-- Zipcode Field -->
+                <div class="mb-4">
+                    <label for="zipcode" class="block text-sm font-medium text-gray-900">Zipcode</label>
+                    {{ form.zipcode }}
+                </div>
+    
+                <!-- City Field -->
+                <div class="mb-4">
+                    <label for="city" class="block text-sm font-medium text-gray-900">City</label>
+                    {{ form.city }}
+                </div>
+    
+                <!-- Submit Button -->
+                <div class="flex justify-end">
+                    <button type="submit" class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-base px-4 py-2 w-auto text-center">
+                        Update
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    {%endblock%}
+    

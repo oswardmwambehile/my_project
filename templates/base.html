@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+    {%load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online shop</title>
+    <!-- Font Awesome CDN -->
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+</head>
+<body>
+  {%include 'nav.html'%}
+  <br><br>
+  <div class="container mx-auto px-4 py-8">
+    
+       
+        
+        <!-- Display Success/Error Messages -->
+        {% if messages %}
+        <div class="space-y-4">
+            {% for message in messages %}
+                <div class="flex items-center p-4 mb-4 text-sm rounded-lg 
+                    {% if message.tags == 'error' %}
+                        text-red-800 bg-red-50 border-l-4 border-red-900 dark:bg-gray-800 dark:text-red-400
+                    {% else %}
+                        text-green-800 bg-green-50 border-l-4 border-green-900 dark:bg-gray-800 dark:text-green-400
+                    {% endif %}"
+                    role="alert">
+                    
+                    <!-- Error Icon -->
+                    {% if message.tags == 'error' %}
+                        <svg class="shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+                        </svg>
+                        <span class="sr-only">Error</span>
+                        <div>
+                            <span class="font-medium">Error!</span> {{ message }}
+                        </div>
+                    <!-- Success Icon -->
+                    {% else %}
+                        <svg class="shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+                        </svg>
+                        <span class="sr-only">Success</span>
+                        <div>
+                            <span class="font-medium">Success!</span> {{ message }}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    
+
+        
+        <!-- Registration Form -->
+        
+    
+</div>
+  
+   {%block content%}
+   
+   {%endblock%}
+   <!-- Main Footer -->
+<<!-- Main Footer -->
+<footer class="bg-gray-900 text-white py-8 mt-12">
+    <div class="container mx-auto px-6 sm:px-12 lg:px-16">
+        <!-- Grid Layout -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+            
+            <!-- About Us Section -->
+            <div>
+                <h3 class="text-xl font-semibold mb-4">About Us</h3>
+                <p class="text-gray-400 text-sm mb-4">We are an online store offering a wide variety of quality products for your daily needs. Our mission is to provide the best customer service with fast shipping and great deals.</p>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-300 hover:text-white">Careers</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white">Press</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white">Privacy Policy</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white">Terms of Service</a></li>
+                </ul>
+            </div>
+
+            <!-- Quick Links Section -->
+            <div>
+                <h3 class="text-xl font-semibold mb-4">Quick Links</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-300 hover:text-white">Shop</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white">Track Order</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white">Contact Us</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white">FAQ</a></li>
+                </ul>
+            </div>
+
+            <!-- Customer Support Section -->
+            <div>
+                <h3 class="text-xl font-semibold mb-4">Customer Support</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-300 hover:text-white">Help Center</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white">Returns & Exchanges</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white">Shipping Information</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white">Order Tracking</a></li>
+                </ul>
+            </div>
+
+            <!-- Newsletter Subscription Section -->
+            <div>
+                <h3 class="text-xl font-semibold mb-4">Stay Updated</h3>
+                <p class="text-gray-400 text-sm mb-4">Sign up for our newsletter and get the latest offers and product updates straight to your inbox.</p>
+                <form action="#" method="POST" class="flex flex-col sm:flex-row sm:space-x-4 sm:space-y-0 space-y-4">
+                    <div class="flex flex-col sm:flex-row w-full">
+                        <input type="email" name="email" placeholder="Enter your email" class="px-4 py-2 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full sm:w-auto" required>
+                        <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-md font-semibold hover:bg-blue-700 w-full sm:w-auto mt-4 sm:mt-0">Subscribe</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Divider Line -->
+        <div class="border-t border-gray-700 my-8"></div>
+
+        <!-- Bottom Footer -->
+        <div class="flex justify-between items-center">
+            <div class="text-sm text-gray-400">
+                &copy; 2025 Your Shop. All Rights Reserved.
+            </div>
+            <div class="flex space-x-6">
+                <a href="#" class="text-gray-400 hover:text-white">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Optional: Include Font Awesome icons for social media -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+<!-- Optional: Include Font Awesome icons for social media -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+ <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+  <body>
+    
+ </html>

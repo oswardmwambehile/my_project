@@ -1,0 +1,27 @@
+{%extends "base.html"%}
+{%load static %}
+
+{%block content%}
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4 md:px-16 py-10 m-3 bg-white text-gray-600">
+    {%for ad in add %}
+
+ <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+    <a href="#">
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Address : {{forloop.counter}}</h5>
+    </a>
+    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Name : {{ad.name}}</p>
+    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Locality : {{ad.locality}}</p>
+    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Mobile : {{ad.mobile}}</p>
+    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">City : {{ad.city}}</p>
+    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Country : {{ad.country}}</p>
+    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">ZipCode : {{ad.zipcode}}</p>
+    <a href="{% url 'update' ad.id%}" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-green-900 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+        Update
+       
+    </a>
+ </div>
+ {%endfor%}
+ 
+</div>
+
+{%endblock%}

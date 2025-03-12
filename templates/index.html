@@ -1,0 +1,471 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<!-- Hero Section with a Product Banner -->
+<div class="relative h-[35.6em] pt-20 transition-transform duration-500 ease-in-out transform hover:scale-105"> <!-- Add pt-20 to give space for the header -->
+    <img class="object-cover h-full w-full transition-all duration-500 ease-in-out hover:opacity-80" src="{% static 'images/home baba.jpg' %}" alt="Shop Banner" />
+    <div class="absolute top-16 md:top-40 w-full text-center px-4 md:px-10">
+        <h1 class="text-4xl md:text-5xl font-semibold text-white bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text shadow-xl animate__animated animate__fadeIn animate__delay-1s">
+            Welcome to Our Online Shop
+        </h1>
+        <p class="text-xl md:text-2xl text-white mt-4 font-light animate__animated animate__fadeIn animate__delay-2s">
+            Discover the best deals and shop the latest products now!
+        </p>
+    </div>
+</div>
+
+<!-- Featured Products Section -->
+<div class="p-6 md:p-10 bg-gray-50">
+    <h2 class="text-3xl font-semibold text-gray-800 text-center mb-8 animate__animated animate__fadeIn animate__delay-3s">Featured Products</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 px-6 md:px-32 py-14">
+        <!-- Product 1 -->
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl hover:bg-gray-100 hover:translate-y-2 animate__animated animate__fadeIn animate__delay-4s">
+            <div class="flex justify-center">
+                <a href="#">
+                    <img class="rounded-t-lg object-cover w-full h-48 transition-transform duration-300 ease-in-out transform hover:scale-110" src="{% static 'images/product_1.png' %}" alt="Product 1" />
+                </a>
+            </div>
+            <div class="p-5">
+                <a href="#">
+                    <h5 class="text-2xl font-semibold text-gray-800">Amazing Product</h5>
+                </a>
+                <p class="text-gray-600 mt-2">This is a description of an amazing product that everyone should have. Available in multiple colors and sizes.</p>
+                <div class="mt-4 flex justify-between items-center">
+                    <span class="text-xl font-semibold text-gray-800">$49.99</span>
+                    <a href="#" class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-500 transition duration-200 transform hover:scale-105">
+                        Buy Now
+                        <svg aria-hidden="true" class="w-4 h-4 ml-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl hover:bg-gray-100 hover:translate-y-2 animate__animated animate__fadeIn animate__delay-5s">
+            <div class="flex justify-center">
+                <a href="#">
+                    <img class="rounded-t-lg object-cover w-full h-48 transition-transform duration-300 ease-in-out transform hover:scale-110" src="{% static 'images/product_2.png' %}" alt="Product 2" />
+                </a>
+            </div>
+            <div class="p-5">
+                <a href="#">
+                    <h5 class="text-2xl font-semibold text-gray-800">Exclusive Gadget</h5>
+                </a>
+                <p class="text-gray-600 mt-2">Experience cutting-edge technology with this exclusive gadget. Perfect for all tech enthusiasts.</p>
+                <div class="mt-4 flex justify-between items-center">
+                    <span class="text-xl font-semibold text-gray-800">$299.99</span>
+                    <a href="#" class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-500 transition duration-200 transform hover:scale-105">
+                        Buy Now
+                        <svg aria-hidden="true" class="w-4 h-4 ml-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl hover:bg-gray-100 hover:translate-y-2 animate__animated animate__fadeIn animate__delay-6s">
+            <div class="flex justify-center">
+                <a href="#">
+                    <img class="rounded-t-lg object-cover w-full h-48 transition-transform duration-300 ease-in-out transform hover:scale-110" src="{% static 'images/product_3.png' %}" alt="Product 3" />
+                </a>
+            </div>
+            <div class="p-5">
+                <a href="#">
+                    <h5 class="text-2xl font-semibold text-gray-800">Stylish Shoes</h5>
+                </a>
+                <p class="text-gray-600 mt-2">Step up your fashion game with these stylish shoes. Comfortable and versatile for any occasion.</p>
+                <div class="mt-4 flex justify-between items-center">
+                    <span class="text-xl font-semibold text-gray-800">$79.99</span>
+                    <a href="#" class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-500 transition duration-200 transform hover:scale-105">
+                        Buy Now
+                        <svg aria-hidden="true" class="w-4 h-4 ml-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl hover:bg-gray-100 hover:translate-y-2 animate__animated animate__fadeIn animate__delay-6s">
+            <div class="flex justify-center">
+                <a href="#">
+                    <img class="rounded-t-lg object-cover w-full h-48 transition-transform duration-300 ease-in-out transform hover:scale-110" src="{% static 'images/product_16.png' %}" alt="Product 3" />
+                </a>
+            </div>
+            <div class="p-5">
+                <a href="#">
+                    <h5 class="text-2xl font-semibold text-gray-800">Leather Boots</h5>
+                </a>
+                <p class="text-gray-600 mt-2">Premium leather boots designed for durability and style. Perfect for the winter season or a night out.</p>
+                <div class="mt-4 flex justify-between items-center">
+                    <span class="text-xl font-semibold text-gray-800">$129.99</span>
+                    <a href="#" class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-500 transition duration-200 transform hover:scale-105">
+                        Buy Now
+                        <svg aria-hidden="true" class="w-4 h-4 ml-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl hover:bg-gray-100 hover:translate-y-2 animate__animated animate__fadeIn animate__delay-6s">
+            <div class="flex justify-center">
+                <a href="#">
+                    <img class="rounded-t-lg object-cover w-full h-48 transition-transform duration-300 ease-in-out transform hover:scale-110" src="{% static 'images/product_25.png' %}" alt="Product 6" />
+                </a>
+            </div>
+            <div class="p-5">
+                <a href="#">
+                    <h5 class="text-2xl font-semibold text-gray-800">Running Sneakers</h5>
+                </a>
+                <p class="text-gray-600 mt-2">Lightweight and comfortable sneakers, ideal for running or casual wear. Built to support your every step.</p>
+                <div class="mt-4 flex justify-between items-center">
+                    <span class="text-xl font-semibold text-gray-800">$89.99</span>
+                    <a href="#" class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-500 transition duration-200 transform hover:scale-105">
+                        Buy Now
+                        <svg aria-hidden="true" class="w-4 h-4 ml-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl hover:bg-gray-100 hover:translate-y-2 animate__animated animate__fadeIn animate__delay-6s">
+            <div class="flex justify-center">
+                <a href="#">
+                    <img class="rounded-t-lg object-cover w-full h-48 transition-transform duration-300 ease-in-out transform hover:scale-110" src="{% static 'images/product_4.png' %}" alt="Product 4" />
+                </a>
+            </div>
+            <div class="p-5">
+                <a href="#">
+                    <h5 class="text-2xl font-semibold text-gray-800">Casual Loafers</h5>
+                </a>
+                <p class="text-gray-600 mt-2">Slip-on loafers that offer both style and comfort. Perfect for any occasion, from casual outings to formal events.</p>
+                <div class="mt-4 flex justify-between items-center">
+                    <span class="text-xl font-semibold text-gray-800">$59.99</span>
+                    <a href="#" class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-500 transition duration-200 transform hover:scale-105">
+                        Buy Now
+                        <svg aria-hidden="true" class="w-4 h-4 ml-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl hover:bg-gray-100 hover:translate-y-2 animate__animated animate__fadeIn animate__delay-6s">
+            <div class="flex justify-center">
+                <a href="#">
+                    <img class="rounded-t-lg object-cover w-full h-48 transition-transform duration-300 ease-in-out transform hover:scale-110" src="{% static 'images/product_12.png' %}" alt="Product 12" />
+                </a>
+            </div>
+            <div class="p-5">
+                <a href="#">
+                    <h5 class="text-2xl font-semibold text-gray-800">Leather Sandals</h5>
+                </a>
+                <p class="text-gray-600 mt-2">Stylish and breathable leather sandals for ultimate comfort during summer days. Easy to wear, great for casual outings.</p>
+                <div class="mt-4 flex justify-between items-center">
+                    <span class="text-xl font-semibold text-gray-800">$49.99</span>
+                    <a href="#" class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-500 transition duration-200 transform hover:scale-105">
+                        Buy Now
+                        <svg aria-hidden="true" class="w-4 h-4 ml-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl hover:bg-gray-100 hover:translate-y-2 animate__animated animate__fadeIn animate__delay-6s">
+            <div class="flex justify-center">
+                <a href="#">
+                    <img class="rounded-t-lg object-cover w-full h-48 transition-transform duration-300 ease-in-out transform hover:scale-110" src="{% static 'images/product_7.png' %}" alt="Product 24" />
+                </a>
+            </div>
+            <div class="p-5">
+                <a href="#">
+                    <h5 class="text-2xl font-semibold text-gray-800">Fashion Sneakers</h5>
+                </a>
+                <p class="text-gray-600 mt-2">Trendy sneakers designed for everyday wear. Lightweight, stylish, and comfortable for all-day use.</p>
+                <div class="mt-4 flex justify-between items-center">
+                    <span class="text-xl font-semibold text-gray-800">$99.99</span>
+                    <a href="#" class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-500 transition duration-200 transform hover:scale-105">
+                        Buy Now
+                        <svg aria-hidden="true" class="w-4 h-4 ml-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl hover:bg-gray-100 hover:translate-y-2 animate__animated animate__fadeIn animate__delay-6s">
+            <div class="flex justify-center">
+                <a href="#">
+                    <img class="rounded-t-lg object-cover w-full h-48 transition-transform duration-300 ease-in-out transform hover:scale-110" src="{% static 'images/product_16.png' %}" alt="Product 16" />
+                </a>
+            </div>
+            <div class="p-5">
+                <a href="#">
+                    <h5 class="text-2xl font-semibold text-gray-800">High-Top Sneakers</h5>
+                </a>
+                <p class="text-gray-600 mt-2">Stylish high-top sneakers designed for comfort and style. Great for casual wear or sports activities.</p>
+                <div class="mt-4 flex justify-between items-center">
+                    <span class="text-xl font-semibold text-gray-800">$109.99</span>
+                    <a href="#" class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-500 transition duration-200 transform hover:scale-105">
+                        Buy Now
+                        <svg aria-hidden="true" class="w-4 h-4 ml-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+       
+        <!-- qssfq   qf  shgqs -->
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl hover:bg-gray-100 hover:translate-y-2 animate__animated animate__fadeIn animate__delay-6s">
+            <div class="flex justify-center">
+                <a href="#">
+                    <img class="rounded-t-lg object-cover w-full h-48 transition-transform duration-300 ease-in-out transform hover:scale-110" src="{% static 'images/product_10.png' %}" alt="Product 10" />
+                </a>
+            </div>
+            <div class="p-5">
+                <a href="#">
+                    <h5 class="text-2xl font-semibold text-gray-800">Modern Sneakers</h5>
+                </a>
+                <p class="text-gray-600 mt-2">Enhance your comfort and style with these modern sneakers. Perfect for daily wear and sport activities.</p>
+                <div class="mt-4 flex justify-between items-center">
+                    <span class="text-xl font-semibold text-gray-800">$89.99</span>
+                    <a href="#" class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-500 transition duration-200 transform hover:scale-105">
+                        Buy Now
+                        <svg aria-hidden="true" class="w-4 h-4 ml-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl hover:bg-gray-100 hover:translate-y-2 animate__animated animate__fadeIn animate__delay-6s">
+            <div class="flex justify-center">
+                <a href="#">
+                    <img class="rounded-t-lg object-cover w-full h-48 transition-transform duration-300 ease-in-out transform hover:scale-110" src="{% static 'images/product_11.png' %}" alt="Product 11" />
+                </a>
+            </div>
+            <div class="p-5">
+                <a href="#">
+                    <h5 class="text-2xl font-semibold text-gray-800">Casual Sneakers</h5>
+                </a>
+                <p class="text-gray-600 mt-2">Step up your comfort with these casual sneakers. Versatile and perfect for everyday use.</p>
+                <div class="mt-4 flex justify-between items-center">
+                    <span class="text-xl font-semibold text-gray-800">$75.99</span>
+                    <a href="#" class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-500 transition duration-200 transform hover:scale-105">
+                        Buy Now
+                        <svg aria-hidden="true" class="w-4 h-4 ml-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl hover:bg-gray-100 hover:translate-y-2 animate__animated animate__fadeIn animate__delay-6s">
+            <div class="flex justify-center">
+                <a href="#">
+                    <img class="rounded-t-lg object-cover w-full h-48 transition-transform duration-300 ease-in-out transform hover:scale-110" src="{% static 'images/product_7.png' %}" alt="Product 7" />
+                </a>
+            </div>
+            <div class="p-5">
+                <a href="#">
+                    <h5 class="text-2xl font-semibold text-gray-800">Sporty Running Shoes</h5>
+                </a>
+                <p class="text-gray-600 mt-2">Stay ahead of the game with these sporty running shoes, designed for both performance and comfort.</p>
+                <div class="mt-4 flex justify-between items-center">
+                    <span class="text-xl font-semibold text-gray-800">$95.99</span>
+                    <a href="#" class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-500 transition duration-200 transform hover:scale-105">
+                        Buy Now
+                        <svg aria-hidden="true" class="w-4 h-4 ml-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl hover:bg-gray-100 hover:translate-y-2 animate__animated animate__fadeIn animate__delay-6s">
+            <div class="flex justify-center">
+                <a href="#">
+                    <img class="rounded-t-lg object-cover w-full h-48 transition-transform duration-300 ease-in-out transform hover:scale-110" src="{% static 'images/product_25.png' %}" alt="Product 25" />
+                </a>
+            </div>
+            <div class="p-5">
+                <a href="#">
+                    <h5 class="text-2xl font-semibold text-gray-800">Fashionable Slip-ons</h5>
+                </a>
+                <p class="text-gray-600 mt-2">Casual slip-ons that offer effortless style and comfort for any day of the week.</p>
+                <div class="mt-4 flex justify-between items-center">
+                    <span class="text-xl font-semibold text-gray-800">$64.99</span>
+                    <a href="#" class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-500 transition duration-200 transform hover:scale-105">
+                        Buy Now
+                        <svg aria-hidden="true" class="w-4 h-4 ml-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl hover:bg-gray-100 hover:translate-y-2 animate__animated animate__fadeIn animate__delay-6s">
+    <div class="flex justify-center">
+        <a href="#">
+            <img class="rounded-t-lg object-cover w-full h-48 transition-transform duration-300 ease-in-out transform hover:scale-110" src="{% static 'images/product_10.png' %}" alt="Product 10" />
+        </a>
+    </div>
+    <div class="p-5">
+        <a href="#">
+            <h5 class="text-2xl font-semibold text-gray-800">Classic White Sneakers</h5>
+        </a>
+        <p class="text-gray-600 mt-2">Timeless design for every occasion, these classic white sneakers provide maximum comfort and style.</p>
+        <div class="mt-4 flex justify-between items-center">
+            <span class="text-xl font-semibold text-gray-800">$69.99</span>
+            <a href="#" class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-500 transition duration-200 transform hover:scale-105">
+                Buy Now
+                <svg aria-hidden="true" class="w-4 h-4 ml-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                </svg>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl hover:bg-gray-100 hover:translate-y-2 animate__animated animate__fadeIn animate__delay-6s">
+    <div class="flex justify-center">
+        <a href="#">
+            <img class="rounded-t-lg object-cover w-full h-48 transition-transform duration-300 ease-in-out transform hover:scale-110" src="{% static 'images/product_11.png' %}" alt="Product 11" />
+        </a>
+    </div>
+    <div class="p-5">
+        <a href="#">
+            <h5 class="text-2xl font-semibold text-gray-800">Elegant Running Shoes</h5>
+        </a>
+        <p class="text-gray-600 mt-2">Perfect blend of elegance and function, these running shoes are lightweight and stylish for all your activities.</p>
+        <div class="mt-4 flex justify-between items-center">
+            <span class="text-xl font-semibold text-gray-800">$85.99</span>
+            <a href="#" class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-500 transition duration-200 transform hover:scale-105">
+                Buy Now
+                <svg aria-hidden="true" class="w-4 h-4 ml-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                </svg>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl hover:bg-gray-100 hover:translate-y-2 animate__animated animate__fadeIn animate__delay-6s">
+    <div class="flex justify-center">
+        <a href="#">
+            <img class="rounded-t-lg object-cover w-full h-48 transition-transform duration-300 ease-in-out transform hover:scale-110" src="{% static 'images/product_7.png' %}" alt="Product 7" />
+        </a>
+    </div>
+    <div class="p-5">
+        <a href="#">
+            <h5 class="text-2xl font-semibold text-gray-800">High-Performance Running Shoes</h5>
+        </a>
+        <p class="text-gray-600 mt-2">Crafted for speed and comfort, these high-performance shoes are built to enhance your runs and athletic performance.</p>
+        <div class="mt-4 flex justify-between items-center">
+            <span class="text-xl font-semibold text-gray-800">$112.99</span>
+            <a href="#" class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-500 transition duration-200 transform hover:scale-105">
+                Buy Now
+                <svg aria-hidden="true" class="w-4 h-4 ml-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                </svg>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl hover:bg-gray-100 hover:translate-y-2 animate__animated animate__fadeIn animate__delay-6s">
+    <div class="flex justify-center">
+        <a href="#">
+            <img class="rounded-t-lg object-cover w-full h-48 transition-transform duration-300 ease-in-out transform hover:scale-110" src="{% static 'images/product_19.png' %}" alt="Product 25" />
+        </a>
+    </div>
+    <div class="p-5">
+        <a href="#">
+            <h5 class="text-2xl font-semibold text-gray-800">Chic Casual Slip-ons</h5>
+        </a>
+        <p class="text-gray-600 mt-2">These slip-ons combine style with convenience for the perfect everyday shoe. Wear them with anything!</p>
+        <div class="mt-4 flex justify-between items-center">
+            <span class="text-xl font-semibold text-gray-800">$59.99</span>
+            <a href="#" class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-500 transition duration-200 transform hover:scale-105">
+                Buy Now
+                <svg aria-hidden="true" class="w-4 h-4 ml-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                </svg>
+            </a>
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Shop by Category Section -->
+<div class="p-6 md:p-10 bg-white">
+    <h2 class="text-3xl font-semibold text-gray-800 text-center mb-8 animate__animated animate__fadeIn animate__delay-7s">Shop by Category</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10 px-6 md:px-32 py-14">
+        <!-- Category 1 -->
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl hover:translate-y-2">
+            <a href="#">
+                <img class="rounded-t-lg object-cover w-full h-48 transition-transform duration-300 ease-in-out transform hover:scale-110" src="{% static 'images/product_11.png' %}" alt="Category 1" />
+            </a>
+            <div class="p-5">
+                <h5 class="text-2xl font-semibold text-gray-800">Electronics</h5>
+                <p class="text-gray-600 mt-2">Discover the latest gadgets, smart devices, and technology.</p>
+            </div>
+        </div>
+
+        <!-- Category 2 -->
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl hover:translate-y-2">
+            <a href="#">
+                <img class="rounded-t-lg object-cover w-full h-48 transition-transform duration-300 ease-in-out transform hover:scale-110" src="{% static 'images/product_12.png' %}" alt="Category 2" />
+            </a>
+            <div class="p-5">
+                <h5 class="text-2xl font-semibold text-gray-800">Fashion</h5>
+                <p class="text-gray-600 mt-2">Shop trendy clothing, shoes, and accessories for every season.</p>
+            </div>
+        </div>
+
+        <!-- Category 3 -->
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl hover:translate-y-2">
+            <a href="#">
+                <img class="rounded-t-lg object-cover w-full h-48 transition-transform duration-300 ease-in-out transform hover:scale-110" src="{% static 'images/product_10.png' %}" alt="Category 3" />
+            </a>
+            <div class="p-5">
+                <h5 class="text-2xl font-semibold text-gray-800">Home Decor</h5>
+                <p class="text-gray-600 mt-2">Find stylish furniture, lighting, and home accessories.</p>
+            </div>
+        </div>
+
+        <!-- Category 4 -->
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl hover:translate-y-2">
+            <a href="#">
+                <img class="rounded-t-lg object-cover w-full h-48 transition-transform duration-300 ease-in-out transform hover:scale-110" src="{% static 'images/product_9.png' %}" alt="Category 4" />
+            </a>
+            <div class="p-5">
+                <h5 class="text-2xl font-semibold text-gray-800">Beauty</h5>
+                <p class="text-gray-600 mt-2">Explore the latest skincare, makeup, and beauty tools.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br><br><br>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 md:px-16 py-10 m-3 bg-white text-gray-600">
+    {% if products %}
+        {% for pro in products reversed %}
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-2xl hover:translate-y-2 duration-300 ease-in-out product-card">
+            <!-- Image Section -->
+            <div class="relative group overflow-hidden rounded-t-lg">
+                <a href="{% url 'product_detail' pro.id %}">
+                    <img class="rounded-t-lg object-cover w-full h-64 md:h-48 group-hover:scale-110 transition-all duration-300 ease-in-out" src="{{ pro.product_image.url }}" alt="{{ pro.title }}"/>
+                </a>
+                <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-50 transition-opacity duration-300 ease-in-out"></div>
+            </div>
+            
+            <!-- Product Info Section -->
+            <div class="p-5">
+                <a href="{% url 'product_detail' pro.id %}">
+                    <h5 class="mb-2 text-2xl font-semibold text-gray-900 dark:text-white hover:text-blue-600 transition-all duration-300 ease-in-out">{{ pro.title }}</h5>
+                </a>
+                
+                <!-- Price Section -->
+                <div class="flex items-center space-x-2">
+                    <p class="text-xl font-bold text-blue-600">${{ pro.selling_price }}</p>
+                    <p class="text-sm text-gray-400 line-through">${{ pro.discount_price }}</p>
+                </div>
+            </div>
+            
+            <!-- View Product Button (link to product details) -->
+            <div class="px-5 py-3">
+                <a href="{% url 'product_detail' pro.id %}" class="w-full bg-green-700 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors duration-300 ease-in-out text-center">View Product</a>
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <h1 class="text-xl text-gray-800">No products available</h1>
+    {% endif %}
+</div>
+
+<!-- Pagination Controls -->
+<div class="pagination flex justify-center items-center space-x-2 mt-8">
+    {% if products.has_previous %}
+        <a href="?page=1" class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">« First</a>
+        <a href="?page={{ products.previous_page_number }}" class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">Previous</a>
+    {% endif %}
+    
+    <!-- Page Numbers -->
+    {% for num in products.paginator.page_range %}
+        {% if products.number == num %}
+            <span class="px-4 py-2 bg-blue-500 text-white rounded-md">{{ num }}</span>
+        {% else %}
+            <a href="?page={{ num }}" class="px-4 py-2 bg-white text-blue-500 rounded-md hover:bg-blue-600">{{ num }}</a>
+        {% endif %}
+    {% endfor %}
+    
+    {% if products.has_next %}
+        <a href="?page={{ products.next_page_number }}" class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">Next</a>
+        <a href="?page={{ products.paginator.num_pages }}" class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">Last »</a>
+    {% endif %}
+</div>
+
+<style>
+   /* Custom card hover effect */
+   .product-card:hover {
+      transform: scale(1.05) translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+   }
+
+   /* Image zoom effect */
+   .product-card img {
+      transition: transform 0.5s ease-in-out;
+   }
+
+   .product-card:hover img {
+      transform: scale(1.1);
+   }
+
+   /* Add a floating "View Product" button effect */
+   .product-card a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+   }
+
+   /* Product title hover effect */
+   .product-card h5:hover {
+      color: #3498db; /* Change text color on hover */
+   }
+
+   /* Pagination button hover effect */
+   .pagination a:hover {
+      background-color: #f1f1f1;
+   }
+</style>
+
+{% endblock %}

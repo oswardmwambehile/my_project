@@ -1,0 +1,153 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container mx-auto p-6">
+    <h1 class="text-3xl font-semibold text-gray-800 mb-6">Your Cart</h1>
+    
+    {% if cart_items %}
+    <div class="overflow-x-auto">
+        <table class="min-w-full table-auto bg-white rounded-lg shadow-md">
+            <thead class="bg-gray-100">
+                <tr>
+                    <th class="py-3 px-6 text-left">Product</th>
+                    <th class="py-3 px-6 text-left">Image</th>
+                    <th class="py-3 px-6 text-left">Price</th>
+                    <th class="py-3 px-6 text-left">Quantity</th>
+                    <th class="py-3 px-6 text-left">Total</th>
+                    <th class="py-3 px-6 text-left">Action</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y">
+                {% for item in cart_items %}
+                <tr class="transition-all hover:bg-gray-100">
+                    <td class="py-4 px-6 text-sm">{{ item.product.title }}</td>
+                    <td class="py-4 px-6">
+                        <img src="{{ item.product.product_image.url }}" alt="{{ item.product.title }}" class="w-16 h-16 object-cover rounded-md">
+                    </td>
+                    <td class="py-4 px-6 text-sm">${{ item.product.discount_price }}</td>
+                    <td class="py-4 px-6 text-sm">
+                        <div class="flex items-center space-x-2">
+                            <!-- Decrement Button -->
+                            <button class="bg-blue-500 text-white p-2 rounded-full hover:bg-blue-400 transition duration-200 decrement-btn" data-id="{{ item.id }}">-</button>
+                            <!-- Quantity Display -->
+                            <span id="quantity-{{ item.id }}">{{ item.quantity }}</span>
+                            <!-- Increment Button -->
+                            <button class="bg-blue-500 text-white p-2 rounded-full hover:bg-blue-400 transition duration-200 increment-btn" data-id="{{ item.id }}">+</button>
+                        </div>
+                    </td>
+                    <td class="py-4 px-6 text-sm">
+                        <span id="total-cost-{{ item.id }}" class="cart-item-total">${{ item.total_cost }}</span>
+                    </td>
+                    <td class="py-4 px-6 text-sm">
+                        <a href="{% url 'remove_from_cart' item.id %}" class="text-red-500 hover:text-red-600 hover:underline transition duration-200">Remove</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="6" class="py-4 px-6 text-center text-lg text-gray-500">Your cart is empty.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Total Price Display -->
+    <div class="mt-6 flex justify-end">
+        <h3 class="text-xl font-semibold">Total: $<span id="total-cart-price">{{ total_cart_price }}</span></h3>
+    </div>
+
+    <!-- Checkout Button -->
+    <div class="mt-4 flex justify-end">
+        <a href="{% url 'checkout' %}" class="bg-green-500 text-white py-3 px-8 rounded-lg font-semibold hover:bg-green-400 transition duration-300 transform hover:scale-105">Proceed to Checkout</a>
+    </div>
+
+    {% else %}
+    <p class="text-center text-gray-500">Your cart is empty. Add items to your cart to proceed.</p>
+    {% endif %}
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Handle increment button click
+        document.querySelectorAll('.increment-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const cartItemId = button.getAttribute('data-id');
+                fetch(`/increment_quantity/${cartItemId}/`, {
+                    method: 'GET',
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest',
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Update the quantity and total cost of the item
+                        document.getElementById(`quantity-${cartItemId}`).textContent = data.quantity;
+                        document.getElementById(`total-cost-${cartItemId}`).textContent = `$${data.total_cost}`;
+
+                        // Update the total cart price
+                        updateTotalCartPrice();
+                        
+                        // Update the cart quantity in the nav
+                        updateNavCartQuantity(data.total_quantity);
+                    } else {
+                        alert(data.message);
+                    }
+                });
+            });
+        });
+
+        // Handle decrement button click
+        document.querySelectorAll('.decrement-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const cartItemId = button.getAttribute('data-id');
+                fetch(`/decrement_quantity/${cartItemId}/`, {
+                    method: 'GET',
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest',
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Update the quantity and total cost of the item
+                        document.getElementById(`quantity-${cartItemId}`).textContent = data.quantity;
+                        document.getElementById(`total-cost-${cartItemId}`).textContent = `$${data.total_cost}`;
+
+                        // Update the total cart price
+                        updateTotalCartPrice();
+                        
+                        // Update the cart quantity in the nav
+                        updateNavCartQuantity(data.total_quantity);
+                    } else {
+                        alert(data.message);
+                    }
+                });
+            });
+        });
+
+        // Function to update the total cart price
+        function updateTotalCartPrice() {
+            let totalCartPrice = 0;
+            // Loop through each item and sum up the total costs
+            document.querySelectorAll('.cart-item-total').forEach(item => {
+                const itemTotalCost = parseFloat(item.textContent.replace('$', ''));
+                totalCartPrice += itemTotalCost;
+            });
+
+            // Update the total cart price on the page
+            document.getElementById('total-cart-price').textContent = totalCartPrice.toFixed(2);
+        }
+
+        // Function to update the cart quantity in the navigation
+        function updateNavCartQuantity(totalQuantity) {
+            const navCartQuantityElement = document.getElementById('cart-quantity');
+            if (navCartQuantityElement) {
+                navCartQuantityElement.textContent = totalQuantity;  // Update nav with the total cart quantity
+            }
+        }
+    });
+</script>
+
+{% endblock %}

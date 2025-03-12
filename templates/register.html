@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="bg-blueviolet shadow-xl border p-4 rounded-lg flex flex-col lg:flex-row items-center justify-center md:mt-0 w-full lg:max-w-screen-lg xl:p-0 container mx-auto px-4 lg:px-8">
+    <div class="w-full lg:w-1/2 flex justify-center items-center mb-6 lg:mb-0">
+        <img class="rounded-lg w-full h-auto max-w-xs sm:max-w-md md:max-w-lg lg:max-w-lg" src="{% static 'images/register.svg' %}" alt="Register Image">
+    </div>
+
+    <div class="w-full lg:w-1/2 p-6 sm:p-8 lg:p-16 lg:py-0 space-y-8">
+        <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 text-center">Create your account</h2>
+
+        <form method="post" action="">
+            {% csrf_token %}
+            <!-- Error message (optional) -->
+            <div class="bg-red-100 text-red-900">
+                <!-- Error message content goes here (e.g., display_error() function) -->
+            </div>
+
+            <!-- Username Field -->
+            <div>
+                <label for="username" class="text-sm font-medium text-gray-900 block mb-2">Username</label>
+                <input type="text" name="username" id="username"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    placeholder="Enter your username" required>
+            </div>
+
+            <!-- Email Field -->
+            <div>
+                <label for="email" class="text-sm font-medium text-gray-900 block mb-2">Email</label>
+                <input type="email" name="email" id="email"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    placeholder="Enter your email" required>
+            </div>
+
+            <!-- Password Field -->
+            <div class="mt-8">
+                <label for="password" class="text-sm font-medium text-gray-900 block mb-2">Password</label>
+                <input type="password" name="password" id="password" placeholder="Enter Password"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    required>
+            </div>
+
+            <!-- Confirm Password Field -->
+            <div class="mt-8">
+                <label for="password1" class="text-sm font-medium text-gray-900 block mb-2">Confirm Password</label>
+                <input type="password" name="password1" id="password1" placeholder="Confirm your password"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    required>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" 
+                class="text-white bg-green-500 mt-8 hover:bg-green-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-3 w-full sm:w-auto text-center">
+                Create your account
+            </button>
+
+            <!-- Login Link -->
+            <div class="flex justify-center text-sm font-medium text-gray-500 mt-4">
+                Already have an account? <a href="{% url 'login' %}" class="text-blue-700 hover:underline">Login</a>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}

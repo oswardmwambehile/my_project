@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- Hero Section with Background Image -->
+<div style="height: 35.6em;" class="relative">
+    <img class="object-cover h-full w-full" src="{% static 'images/product_13.png' %}" alt="Services Banner" />
+    <div class="absolute top-16 md:top-40 w-full text-center text-white">
+        <h1 class="text-5xl font-bold animate__animated animate__fadeIn animate__delay-1s">Our Services</h1>
+        <p class="text-xl mt-4 animate__animated animate__fadeIn animate__delay-2s">Providing innovative solutions to meet all your needs</p>
+    </div>
+</div>
+
+<!-- Introduction Section -->
+<div class="p-8 md:p-20 bg-gray-50">
+    <div class="max-w-screen-xl mx-auto text-center">
+        <h2 class="text-3xl font-semibold text-gray-800 mb-6 animate__animated animate__fadeIn animate__delay-3s">Why Choose Us?</h2>
+        <p class="text-lg text-gray-600 mb-6 animate__animated animate__fadeIn animate__delay-4s">
+            At Online Shopping Company, we offer a wide range of services tailored to meet the specific needs of our clients. Whether you're an individual looking for top-quality products or a business seeking customized solutions, we are dedicated to providing you with innovative, high-quality, and cost-effective services that you can trust.
+        </p>
+        <p class="text-lg text-gray-600 mb-6 animate__animated animate__fadeIn animate__delay-5s">
+            Our professional team brings years of experience and expertise to every project, ensuring that each client receives the best possible experience and outcome.
+        </p>
+    </div>
+</div>
+
+<!-- Services Section -->
+<div class="py-16 px-4 md:px-10 bg-white">
+    <div class="max-w-screen-xl mx-auto text-center">
+        <h2 class="text-3xl font-semibold text-gray-800 mb-6 animate__animated animate__fadeIn animate__delay-6s">Our Services</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <!-- Service 1 -->
+            <div class="bg-gray-100 p-6 rounded-lg shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                <img class="w-20 h-20 mx-auto mb-4" src="{% static 'images/product_23.png' %}" alt="Service 1">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Product Consultation</h3>
+                <p class="text-gray-600 mb-4">
+                    Our product consultation services are designed to help you choose the right solutions for your needs. We analyze your requirements and recommend the best options available.
+                </p>
+                <a href="#consultation" class="inline-block px-6 py-3 text-lg text-white bg-blue-600 rounded-lg hover:bg-blue-700 transform transition duration-300">
+                    Learn More
+                </a>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="bg-gray-100 p-6 rounded-lg shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                <img class="w-20 h-20 mx-auto mb-4" src="{% static 'images/product_8.png' %}" alt="Service 2">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Custom Solutions</h3>
+                <p class="text-gray-600 mb-4">
+                    We specialize in providing custom-tailored solutions that match the unique needs of your business. From design to execution, we handle everything for you.
+                </p>
+                <a href="#custom-solutions" class="inline-block px-6 py-3 text-lg text-white bg-blue-600 rounded-lg hover:bg-blue-700 transform transition duration-300">
+                    Learn More
+                </a>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="bg-gray-100 p-6 rounded-lg shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                <img class="w-20 h-20 mx-auto mb-4" src="{% static 'images/product_18.png' %}" alt="Service 3">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">24/7 Customer Support</h3>
+                <p class="text-gray-600 mb-4">
+                    Our customer support team is available 24/7 to assist you with any queries or concerns. We ensure you receive timely help whenever you need it.
+                </p>
+                <a href="#support" class="inline-block px-6 py-3 text-lg text-white bg-blue-600 rounded-lg hover:bg-blue-700 transform transition duration-300">
+                    Learn More
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Detailed Services Section -->
+<div class="bg-gray-50 py-16 px-4 md:px-10">
+    <div class="max-w-screen-xl mx-auto text-center">
+        <h2 class="text-3xl font-semibold text-gray-800 mb-6 animate__animated animate__fadeIn animate__delay-7s">Our Service Commitment</h2>
+        <p class="text-lg text-gray-600 mb-6">
+            We are committed to providing exceptional service across all areas. Below are some of the additional services we provide to ensure your satisfaction:
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <!-- Service 4 -->
+            <div class="bg-white p-6 rounded-lg shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Fast Delivery</h3>
+                <p class="text-gray-600 mb-4">
+                    We ensure quick and reliable delivery for all our products, with multiple delivery options to meet your needs. Get your products on time, every time!
+                </p>
+            </div>
+
+            <!-- Service 5 -->
+            <div class="bg-white p-6 rounded-lg shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Secure Payment Options</h3>
+                <p class="text-gray-600 mb-4">
+                    Your security is our priority. We offer a range of secure payment options to give you peace of mind when making purchases.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Call to Action Section -->
+<div class="bg-blue-600 py-16 text-white text-center">
+    <h2 class="text-3xl font-semibold mb-4">Ready to Experience Exceptional Service?</h2>
+    <p class="text-lg mb-6">Take advantage of our expert services and let us help you achieve your goals with ease and efficiency.</p>
+    <a href="{%url 'contact'%}" class="inline-block px-8 py-3 text-xl bg-green-600 rounded-lg hover:bg-green-700 transform transition duration-300">
+        Contact Us Now
+    </a>
+</div>
+
+{% endblock %}

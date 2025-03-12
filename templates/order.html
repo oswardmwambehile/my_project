@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+    <h2 class="text-3xl font-semibold text-center mb-6">Your Order Progress</h2>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {% for order in orders %}
+        <div class="order-card bg-white p-6 rounded-lg shadow-lg flex flex-col space-y-6">
+            <!-- Product and Order Details Header -->
+            <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between mb-4">
+                <div class="flex items-center space-x-4">
+                    <img src="{{ order.product.product_image.url }}" alt="{{ order.product.title }}" class="w-20 h-20 object-cover rounded-md">
+                    <div>
+                        <h3 class="text-xl font-semibold">{{ order.product.title }}</h3>
+                        <p class="text-gray-500">{{ order.product.category.name }}</p>
+                    </div>
+                </div>
+                <div class="text-right mt-4 lg:mt-0">
+                    <p class="font-semibold text-lg text-green-500">${{ order.product.discount_price }}</p>
+                </div>
+            </div>
+
+            <!-- Progress Bar for Order Status -->
+            <div class="w-full bg-gray-200 rounded-full h-4 mb-4">
+                <!-- Progress Bar Wrapper -->
+                <div class="h-4 rounded-full relative">
+                    <!-- Progress Bar Background (Color & Width) -->
+                    <div class="absolute top-0 left-0 h-4 rounded-full 
+                        {% if order.status == 'accepted' %} bg-blue-500 w-1/4 
+                        {% elif order.status == 'packed' %} bg-yellow-500 w-1/2 
+                        {% elif order.status == 'On the way' %} bg-orange-500 w-3/4 
+                        {% elif order.status == 'Delivered' %} bg-green-500 w-full 
+                        {% elif order.status == 'cancel' %} bg-red-500 w-0 
+                        {% else %} bg-gray-500 w-0 
+                        {% endif %}
+                    ">
+                    </div>
+            
+                    <!-- Progress Bar Indicator with Percentage Text -->
+                    <div class="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center text-xs text-white font-semibold">
+                        <span class="text-sm">
+                            {% if order.status == 'accepted' %}
+                                25% Accepted
+                            {% elif order.status == 'packed' %}
+                                50% Packed
+                            {% elif order.status == 'On the way' %}
+                                75% On the Way
+                            {% elif order.status == 'Delivered' %}
+                                100% Delivered
+                            {% elif order.status == 'cancel' %}
+                                Cancelled
+                            {% else %}
+                                Pending
+                            {% endif %}
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+
+            <!-- Order Status -->
+            <div class="text-center">
+                <p class="font-semibold text-lg">Status: <span class="text-xl 
+                    {% if order.status == 'accepted' %} text-blue-500
+                    {% elif order.status == 'packed' %} text-yellow-500
+                    {% elif order.status == 'On the way' %} text-orange-500
+                    {% elif order.status == 'Delivered' %} text-green-500
+                    {% elif order.status == 'cancel' %} text-red-500
+                    {% else %} text-gray-500
+                    {% endif %}
+                    ">{{ order.get_status_display }}</span></p>
+            </div>
+
+            <!-- Order Details -->
+            <div class="flex flex-col md:flex-row justify-between text-sm text-gray-600">
+                <div>
+                    <p><strong>Quantity:</strong> {{ order.quantity }}</p>
+                    <p><strong>Total Cost:</strong> ${{ order.total_cost }}</p>
+                </div>
+                <div class="mt-4 md:mt-0 text-right">
+                    <p><strong>Order Date:</strong> {{ order.order_date }}</p>
+                </div>
+            </div>
+
+            <!-- Total Price and Quantity -->
+            <div class="flex justify-between items-center mt-6">
+                <div class="text-lg font-semibold">
+                    <p>Total Quantity: <span class="text-gray-700">{{ order.quantity }}</span></p>
+                    <p class="text-xl text-green-600">Total: ${{ order.total_cost }}</p>
+                </div>
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock %}

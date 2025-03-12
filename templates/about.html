@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- Hero Section with Background Image -->
+<div style="height: 35.6em;" class="relative">
+    <img class="object-cover h-full w-full" src="{% static 'images/d1.jpg' %}" alt="About Us Banner" />
+    <div class="absolute top-16 md:top-40 w-full text-center text-white">
+        <h1 class="text-5xl font-bold animate__animated animate__fadeIn animate__delay-1s">About Us</h1>
+        <p class="text-xl mt-4 animate__animated animate__fadeIn animate__delay-2s">Your trusted partner in high-quality products and exceptional service</p>
+    </div>
+</div>
+
+<!-- About Us Section -->
+<div class="p-8 md:p-20 bg-gray-50">
+    <div class="max-w-screen-xl mx-auto text-center">
+        <h2 class="text-3xl font-semibold text-gray-800 mb-6 animate__animated animate__fadeIn animate__delay-3s">Who We Are</h2>
+        <p class="text-lg text-gray-600 mb-6 animate__animated animate__fadeIn animate__delay-4s">
+            We are a dynamic company dedicated to offering a diverse range of top-quality products to meet the needs of our customers. Our mission is to provide exceptional service and unbeatable value, ensuring that every experience with us is a memorable one. Whether you're looking for the latest gadgets, fashion, or home essentials, we have something for everyone.
+        </p>
+        <p class="text-lg text-gray-600 mb-6 animate__animated animate__fadeIn animate__delay-5s">
+            Founded on the principles of innovation, quality, and customer satisfaction, we aim to build long-lasting relationships with our clients by always delivering beyond expectations.
+        </p>
+    </div>
+</div>
+
+<!-- Our Values Section -->
+<div class="bg-white py-16 px-4 md:px-10">
+    <div class="max-w-screen-xl mx-auto text-center">
+        <h2 class="text-3xl font-semibold text-gray-800 mb-6 animate__animated animate__fadeIn animate__delay-6s">Our Core Values</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 px-4 md:px-20">
+            <!-- Value 1 -->
+            <div class="bg-gray-100 p-6 rounded-lg shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Innovation</h3>
+                <p class="text-gray-600">We believe in continuous innovation, offering the latest products and solutions to meet the evolving needs of our customers.</p>
+            </div>
+
+            <!-- Value 2 -->
+            <div class="bg-gray-100 p-6 rounded-lg shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Quality</h3>
+                <p class="text-gray-600">We are committed to providing only the highest-quality products, ensuring that every purchase is worthwhile.</p>
+            </div>
+
+            <!-- Value 3 -->
+            <div class="bg-gray-100 p-6 rounded-lg shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Customer Satisfaction</h3>
+                <p class="text-gray-600">Our customers are at the heart of everything we do. We aim to exceed expectations and deliver exceptional service at every step of the journey.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Our Team Section -->
+<div class="py-16 px-4 md:px-10 bg-gray-50">
+    <div class="max-w-screen-xl mx-auto text-center">
+        <h2 class="text-3xl font-semibold text-gray-800 mb-6 animate__animated animate__fadeIn animate__delay-7s">Meet Our Team</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <!-- Team Member 1 -->
+            <div class="text-center">
+                <img class="w-32 h-32 mx-auto rounded-full" src="{% static 'images/product_19.png' %}" alt="Team Member 1">
+                <h3 class="text-xl font-semibold text-gray-800 mt-4">Osward Mwambehile</h3>
+                <p class="text-gray-600">CEO & Founder</p>
+                <p class="text-gray-500 mt-2">With over 20 years of experience in the industry, John leads the company with a passion for excellence and innovation.</p>
+            </div>
+
+            <!-- Team Member 2 -->
+            <div class="text-center">
+                <img class="w-32 h-32 mx-auto rounded-full" src="{% static 'images/product_4.png' %}" alt="Team Member 2">
+                <h3 class="text-xl font-semibold text-gray-800 mt-4">Anastazia Mwambehile</h3>
+                <p class="text-gray-600">Marketing Director</p>
+                <p class="text-gray-500 mt-2">Jane has a knack for understanding customer needs and developing strategies that drive growth and brand loyalty.</p>
+            </div>
+
+            <!-- Team Member 3 -->
+            <div class="text-center">
+                <img class="w-32 h-32 mx-auto rounded-full" src="{% static 'images/product_6.png' %}" alt="Team Member 3">
+                <h3 class="text-xl font-semibold text-gray-800 mt-4">Alice Johnson</h3>
+                <p class="text-gray-600">Operations Manager</p>
+                <p class="text-gray-500 mt-2">Alice ensures that everything runs smoothly behind the scenes, ensuring top-notch service for our customers.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Call to Action Section -->
+<div class="bg-blue-600 py-16 text-white text-center">
+    <h2 class="text-3xl font-semibold mb-4">Ready to Experience the Best?</h2>
+    <p class="text-lg mb-6">Join thousands of satisfied customers who trust us for high-quality products and services.</p>
+    <a href="{%url 'checkout' %}" class="inline-block px-8 py-3 text-xl bg-green-600 rounded-lg hover:bg-green-700 transform transition duration-300">
+        Shop Now
+    </a>
+</div>
+
+{% endblock %}

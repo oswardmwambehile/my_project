@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+        <!-- Order Summary Section -->
+        <div class="order-summary bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-xl font-semibold mb-4">Order Summary</h2>
+            <div class="overflow-x-auto">
+                <!-- Table with headers for Product, Quantity, and Total Cost -->
+                <table class="min-w-full table-auto">
+                    <thead>
+                        <tr class="bg-gray-100">
+                            <th class="py-2 px-4 text-left font-semibold">Product</th>
+                            <th class="py-2 px-4 text-left font-semibold">Quantity</th>
+                            <th class="py-2 px-4 text-left font-semibold">Total Cost</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in cart_items %}
+                            <tr class="border-b">
+                                <td class="py-2 px-4">{{ item.product.title }}</td>
+                                <td class="py-2 px-4">{{ item.quantity }}</td>
+                                <td class="py-2 px-4">${{ item.total_cost }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                <!-- Total Price Row -->
+                <div class="flex justify-between font-semibold pt-4">
+                    <span>Total</span>
+                    <span>${{ total_cart_price }}</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Shipping Address Section -->
+        <div class="shipping-address bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-xl font-semibold mb-4">Shipping Address</h2>
+
+            {% if address %}
+                <div class="space-y-4">
+                    <form action="{% url 'checkout' %}" method="POST">
+                        {% csrf_token %}
+                        {% for addr in address reversed %}
+                            <div class="flex justify-between items-center border-b py-2">
+                                <div class="flex flex-col">
+                                    <span>Name : {{ addr.name }}</span>
+                                    <span>District : {{ addr.locality }}</span>
+                                    <span>Region : {{ addr.city }}</span>
+                                    <span>Phone Number : {{ addr.mobile }}</span>
+                                    <span>ZipCode : {{ addr.zipcode }}</span>
+                                    <span>Country : {{ addr.country }}</span>
+                                </div>
+                                <label for="address_{{ addr.id }}" class="bg-blue-500 text-white py-1 px-3 rounded cursor-pointer">
+                                    Select
+                                </label>
+                                <input type="radio" name="shipping_address" value="{{ addr.id }}" id="address_{{ addr.id }}" class="hidden">
+                            </div>
+                        {% endfor %}
+                        <div class="mt-4">
+                            <!-- Add a payment method selection if needed -->
+                            <div class="flex justify-between">
+                                <label for="payment_method_cash_on_delivery" class="bg-green-500 text-white py-2 px-4 rounded-lg">
+                                    Cash on Delivery
+                                    <input type="radio" name="payment_method" id="payment_method_cash_on_delivery" value="cash_on_delivery" class="hidden" checked>
+                                </label>
+                                <label for="payment_method_online_payment" class="bg-blue-500 text-white py-2 px-4 rounded-lg">
+                                    Online Payment
+                                    <input type="radio" name="payment_method" id="payment_method_online_payment" value="online_payment" class="hidden">
+                                </label>
+                            </div>
+                        </div>
+                        <button type="submit" class="bg-green-500 text-white py-2 px-4 rounded-lg font-semibold hover:bg-green-600 mt-4">
+                            Proceed to Payment
+                        </button>
+                    </form>
+                </div>
+            {% else %}
+                <p>No shipping address found. Please add an address to proceed.</p>
+            {% endif %}
+        </div>
+
+    </div>
+</div>
+{% endblock %}
